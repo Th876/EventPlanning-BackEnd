@@ -13,6 +13,11 @@ const eventSchema = new mongoose.Schema({
         required: true,
     },
 
+    eventType: {
+        type: String,
+        required: true,
+    },
+
     eventDateTime: {
         type: Date,
         required: true,
@@ -22,8 +27,8 @@ const eventSchema = new mongoose.Schema({
     theme: String,
     numOfGuests: Number,
     budget: Number,
-    dressCode: String,
     cuisine: String,
+    entertainment: String,
     notes: String,
     complete: Boolean,
 });
