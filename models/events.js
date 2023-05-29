@@ -1,7 +1,12 @@
 // require mongoose
 const mongoose = require('mongoose');
 
-// define mongoose schema
+// define mongoose schemata
+// const moodBoard = new mongoose.Schema ({
+// 
+// });
+
+
 const eventSchema = new mongoose.Schema({
     eventName: {
     type: String,
@@ -30,7 +35,7 @@ const eventSchema = new mongoose.Schema({
     cuisine: String,
     entertainment: String,
     notes: String,
-    complete: Boolean,
+    isCompleted: Boolean,
 });
 
 // Create mongoose model

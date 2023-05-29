@@ -1,9 +1,20 @@
-// require express
+// Require express
 const express = require('express');
-// require mongoose
+
+// Require mongoose
 const mongoose = require('mongoose');
+
 // Set up environment: require dotenv & load .env info into node environment
 require('dotenv').config();
+
+// Require mongoose model for CRUD function
+const Events = require('./models/events');
+
+// Require initial sample data for seeding
+const eventsData = require('./utilities/data.js');
+
+// Require CRUD logic from the controllers folder
+const eventsController = require('./controllers/events');
 
 // Set up server
 const app = express();
@@ -16,9 +27,16 @@ app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 app.use(express.static('public'));
 
-// Routes
+//Tell server.js to look for req, res that starts with routes '/events' to perform necessary tasks from the controllers file.
+app.use('/events', eventsController);
 
-// seeding database
+
+// Seed database
+app.get('/seed', async(req, res) => {
+    await Events.deleteMany({});
+    await Events.insertMany(eventsData);
+    res.send('Done!');
+});
 
 //Connect to mongoDB
 const launchMongoose = async () => {
