@@ -16,8 +16,8 @@ router.get('/', async (req, res) => {
     } catch(err) {
         router.post('/', async (req, res) => {
   try {
-    const createdTodo = await Todos.create(req.body);
-    res.json(createdTodo);
+    const createdEvents = await Todos.create(req.body);
+    res.json(createdEvents);
   } catch (err) {
     console.log('Error');
     res.json({error: 'An error occurred'});
@@ -43,8 +43,8 @@ router.get('/', async (req, res) => {
 // Delete : Get rid of this particular thing! 
 router.delete('/:id', async (req, res) => {
     try {
-        const deletedEvents = await Events.findByIdAndRemove(req.params.id);
-        res.json(deletedEvents);
+        const deletedEvent = await Events.findByIdAndRemove(req.params.id);
+        res.json(deletedEvent);
     } catch(err) {
         console.log('Error');
         res.json({error: 'An error occurred'});
@@ -54,8 +54,8 @@ router.delete('/:id', async (req, res) => {
 // Update : Update this specific thing with this updated form
 router.put('/:id', async (req, res) => {
     try{
-        const updatedEvents = await Events.findByIdAndUpdate(req.params.id, req.body, {new : true});
-        res.json(updatedEvents);
+        const updatedEvent = await Events.findByIdAndUpdate(req.params.id, req.body, {new : true});
+        res.json(updatedEvent);
     } catch(err) {
         console.log('Error');
         res.json({error: 'An error occurred'});
@@ -65,8 +65,8 @@ router.put('/:id', async (req, res) => {
 // Create : Make a new thing with this filled out form
 router.post('/', async(req, res) => {
     try {
-        const createdEvents = await Events.create(req.body);
-        res.json(createdEvents);
+        const createdEvent = await Events.create(req.body);
+        res.json(createdEvent);
     } catch(err) {
         console.log('Error');
         res.json({error: 'An error occurred'});
@@ -77,8 +77,8 @@ router.post('/', async(req, res) => {
 // Show : Show me this one thing!
 router.get('/:id', async (req, res) => {
     try {
-    const foundEvents = await Events.findById(req.params.id);
-    res.json(foundEvents);
+    const foundEvent = await Events.findById(req.params.id);
+    res.json(foundEvent);
     } catch(err) {
         console.log('Error');
         res.json({error: 'An error occurred'});
