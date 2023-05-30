@@ -4,6 +4,9 @@ const express = require('express');
 // Require mongoose
 const mongoose = require('mongoose');
 
+// require cors
+const cors = require('cors');
+
 // Set up environment: require dotenv & load .env info into node environment
 require('dotenv').config();
 
@@ -26,6 +29,7 @@ const PORT = process.env.PORT || 3001;
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 app.use(express.static('public'));
+app.use(cors({ origin: '*' })) // used to whitelist requests
 
 //Tell server.js to look for req, res that starts with routes '/events' to perform necessary tasks from the controllers file.
 app.use('/events', eventsController);
