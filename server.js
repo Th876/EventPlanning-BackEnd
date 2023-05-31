@@ -35,7 +35,7 @@ app.use(cors({ origin: '*' })) // used to whitelist requests
 app.use('/events', eventsController);
 
 
-// Seed database
+// Seed database. Advised to comment it out, not delete it
 // app.get('/seed', async(req, res) => {
     // await Events.deleteMany({});
     // await Events.insertMany(eventsData);
