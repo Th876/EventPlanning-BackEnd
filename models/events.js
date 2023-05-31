@@ -31,14 +31,32 @@ const eventSchema = new mongoose.Schema({
         
         
   },
+    venue: 
+    {
+        type: String,
+    },
+    theme: {
+        type: String,
+    },
 
-    venue: String,
-    theme: String,
-    numOfGuests: Number,
-    budget: String,
-    cuisine: String,
-    entertainment: String,
-    notes: String,
+    numOfGuests: {
+        type: Number,
+    },
+
+    budget: {
+        type: String,    
+     },
+
+    cuisine: {
+        type:String,
+    },
+
+    entertainment: {
+        type: String,
+    },
+    notes: {
+        type: String,
+    }
 });
 
 // Create mongoose model

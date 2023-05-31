@@ -36,11 +36,11 @@ app.use('/events', eventsController);
 
 
 // Seed database
-app.get('/seed', async(req, res) => {
-    await Events.deleteMany({});
-    await Events.insertMany(eventsData);
-    res.send('Done!');
-});
+// app.get('/seed', async(req, res) => {
+    // await Events.deleteMany({});
+    // await Events.insertMany(eventsData);
+    // res.send('Done!');
+// });
 
 //Connect to mongoDB
 const launchMongoose = async () => {

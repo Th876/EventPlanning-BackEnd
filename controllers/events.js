@@ -6,26 +6,6 @@ const router = express.Router();
 const Events = require('../models/events.js');
 const eventsData = require('../utilities/data');
 
-// Index 
-//Show initial data
-router.get('/', async (req, res) => {
-    try {
-        await Events.deleteMany({});
-        const showSampleEvents = await Events.insertMany(eventsData);
-        res.json(showSampleEvents);
-    } catch(err) {
-        router.post('/', async (req, res) => {
-  try {
-    const createdEvents = await Todos.create(req.body);
-    res.json(createdEvents);
-  } catch (err) {
-    res.json({error: 'An error occurred'});
-  }
-});
-
-    }   
-});
-
 // Index: Show all the things! 
 router.get('/', async (req, res) => {
     try {
@@ -60,6 +40,8 @@ router.put('/:id', async (req, res) => {
 
 // Create : Make a new thing with this filled out form
 router.post('/', async(req, res) => {
+    // test if going to backend
+    console.log(req.body);
     try {
         const createdEvent = await Events.create(req.body);
         res.json(createdEvent);
