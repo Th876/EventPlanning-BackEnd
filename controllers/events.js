@@ -19,7 +19,6 @@ router.get('/', async (req, res) => {
     const createdEvents = await Todos.create(req.body);
     res.json(createdEvents);
   } catch (err) {
-    console.log('Error');
     res.json({error: 'An error occurred'});
   }
 });
@@ -33,7 +32,6 @@ router.get('/', async (req, res) => {
         const foundEvents = await Events.find({});
         res.json(foundEvents);
     } catch (err) {
-        console.log('Error');
         res.json({error: 'An error occurred'});
     }
 });
@@ -46,7 +44,6 @@ router.delete('/:id', async (req, res) => {
         const deletedEvent = await Events.findByIdAndRemove(req.params.id);
         res.json(deletedEvent);
     } catch(err) {
-        console.log('Error');
         res.json({error: 'An error occurred'});
     }
 });
@@ -57,7 +54,6 @@ router.put('/:id', async (req, res) => {
         const updatedEvent = await Events.findByIdAndUpdate(req.params.id, req.body, {new : true});
         res.json(updatedEvent);
     } catch(err) {
-        console.log('Error');
         res.json({error: 'An error occurred'});
     }
 })
@@ -68,7 +64,6 @@ router.post('/', async(req, res) => {
         const createdEvent = await Events.create(req.body);
         res.json(createdEvent);
     } catch(err) {
-        console.log('Error');
         res.json({error: 'An error occurred'});
     }
 })
@@ -80,7 +75,6 @@ router.get('/:id', async (req, res) => {
     const foundEvent = await Events.findById(req.params.id);
     res.json(foundEvent);
     } catch(err) {
-        console.log('Error');
         res.json({error: 'An error occurred'});
     }
 })

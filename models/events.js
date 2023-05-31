@@ -1,6 +1,7 @@
 // require mongoose
 const mongoose = require('mongoose');
-
+// require moment to change date format
+const moment = require('moment');
 // define mongoose schemata
 // const moodBoard = new mongoose.Schema ({
 // 
@@ -24,18 +25,20 @@ const eventSchema = new mongoose.Schema({
     },
 
     eventDateTime: {
-        type: Date,
+        type: String,
+        default: Date,
         required: true,
-    },
+        
+        
+  },
 
     venue: String,
     theme: String,
     numOfGuests: Number,
-    budget: Number,
+    budget: String,
     cuisine: String,
     entertainment: String,
     notes: String,
-    isCompleted: Boolean,
 });
 
 // Create mongoose model
