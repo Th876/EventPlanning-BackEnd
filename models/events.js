@@ -2,10 +2,6 @@
 const mongoose = require('mongoose');
 // require moment to change date format
 const moment = require('moment');
-// define mongoose schemata
-// const moodBoard = new mongoose.Schema ({
-// 
-// });
 
 
 const eventSchema = new mongoose.Schema({
